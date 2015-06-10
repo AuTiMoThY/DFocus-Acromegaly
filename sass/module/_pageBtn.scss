@@ -1,28 +1,32 @@
+@charset "UTF-8";
+
 /*------------------------------------*\
 		pagesBtn
 \*------------------------------------*/
+$itemwh: 25px;
+
 .pages_btn {
 	height: 70px;
 	margin: 30px auto 0px;
 	text-align: center;
 	display: table;
 	ul {
-		float: right;
+		// float: right;
 	}
 	li {
-		// width: 30px !important;
-		// height: 30px !important;
-		display: block;
-		margin-right: 5px;
-		text-align: center;
-		line-height: 30px;
-		float: left;
-		// @include circle(30px);
 		position: relative;
+		display: block;
+		@include circle($itemwh);
+		@include bg(#98c7d2);
+		border: 1px solid #d8d8d8;
+		margin-right: 5px;
+		line-height: $itemwh;
+		text-align: center;
+		float: left;
 		&.number {
-			@include wh(30px);
-			background: #cfcfcf;
-			border: 1px solid #cfcfcf;
+			// @include circle($itemwh);
+			// background: #98c7d2;
+			// border: 1px solid #cfcfcf;
 			&:hover {
 				background: $normal_color;
 				border: 1px solid $normal_color;
@@ -30,11 +34,11 @@
 					color: #fff;
 				}
 				&:after {
-					@include psudoClass;
-					@include triBtm($normal_color, 10px, 9px);
-					position: absolute;
-					bottom: -6px;
-					left: 4px;
+					// @include psudoClass;
+					// @include triBtm($normal_color, 10px, 9px);
+					// position: absolute;
+					// bottom: -6px;
+					// left: 4px;
 				}
 			}
 		}
@@ -48,40 +52,41 @@
 		&:hover {
 		}
 		&.prev {
-			width: auto;
-			border: none;
+			// width: auto;
+			// border: none;
 			// padding: 6px;
-			background: none;
+			// background: none;
 			margin: 0 1.5em;
 			&>a {
 				// @include triPrev($normal_color, 10px);
 				// display: inline-block;
 				.icon {
-					@include wh(27px);
-					@include bg-i(-47px, 0);
+					// @include bg-i(-47px, 0);
+					font-style: normal;
 				}
 			}
 			&:hover {
-				background: none;
+				// background: none;
 			}
 		}
+		//  下一頁
 		&.next {
-			width: auto;
-			border: none;
+			// width: auto;
+			// border: none;
 			// padding: 6px;
-			background: none;
+			// background: none;
 			margin: 0 1.5em;
 			&>a {
 				// @include triNext($normal_color, 10px);
 				// display: inline-block;
 				.icon {
-					@include wh(27px);
-					@include bg-i(-47px, 0);
-					@include rotate(180deg);
+					@include wh($itemwh);
+					// @include rotate(180deg);
+					font-style: normal;
 				}
 			}
 			&:hover {
-				background: none;
+				// background: none;
 			}
 		}
 	}
@@ -107,10 +112,10 @@
 	a {
 		display: block;
 		color: #000;
-		font-size: 15px;
+		font-size: em(15);
 		font-family: $normal_font;
 		font-weight: bolder;
-		line-height: 30px;
+		line-height: $itemwh;
 		&:hover {
 			@include scale(1.05);
 		}

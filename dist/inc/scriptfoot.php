@@ -14,6 +14,6 @@
 <!-- <script src="plugin/pathLoader/pathLoader.js"></script> -->
 <script src="plugin/FlexSlider/jquery.flexslider.js"></script>
 
-<!-- <script src="dist/js/au.js"></script> -->
+<script src="dist/js/au.js"></script>
 
 

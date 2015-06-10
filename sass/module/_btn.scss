@@ -67,6 +67,7 @@ button {
 		}
 	}
 
+
 /*========================================================================*\
 		project 
 \*========================================================================*/
@@ -106,9 +107,40 @@ button {
 			}
 		}
 	}
+	&-assess {
+		display: block;
+		@include wh2(115 30);
+		@include bg(#004f5b);
+		color: #fff;
+		text-align: center;
+		line-height: 30px;
+	}
 
 }//.btn
 
+#marqueeBtn {
+	&.btn {
+		position: absolute;
+		right: 0;
+		width: 15px;
+	}
+}
 
-
-
+.more_btn {
+	@include absolute($r:50px, $b:20px);
+	@include wh2(60 20);
+	@include bg(#ecce54);
+	border: 1px solid #172934;
+	transition: all 0.1s ease-out;
+	a {
+		@include wh2;
+		display: block;
+		color: #000;
+		font-size: em(11);
+		line-height: 20px;
+		text-align: center;
+	}
+	&:hover {
+		box-shadow: 1px 1px 3px #666;
+	}
+}

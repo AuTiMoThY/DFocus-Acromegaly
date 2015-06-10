@@ -18,9 +18,11 @@
 html, body {
 	min-height: 100%;
 	min-width: $cnt_width;
+	// height: 100%;
 }
 
 body {
+	position: relative;
 	// @include bg('bg.jpg');
 	// @include background-size(cover);
 	// @include bg(scroll);
@@ -36,7 +38,7 @@ body {
 	}
 }
 
-.temporary {
+.temp {
 	display: block;
 	margin: 0 auto;
 }
@@ -64,6 +66,7 @@ body {
 	margin-bottom:0.5em;
 	line-height:1.2125em;
 	letter-spacing:2px;
+	font-family: $normal_font2;
 }
 @for $i from 1 through 6 {
 	h#{$i} {
@@ -89,9 +92,6 @@ p {
 ul, ol, dl {list-style-position:outside;}
 dl dt{margin-bottom:0.3em;font-weight:bold;}
 dl dd{margin-bottom:0.75em;}
-
-
-
 
 /*========================================================================*\
 		test

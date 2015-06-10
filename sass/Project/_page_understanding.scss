@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+.understanding_page {
+	// .cnt_md {
+	// 	display: table;
+	// }
+	// .col {
+	// 	display: table-cell;
+	// }
+	// .col1 {
+	// 	width: 53%;
+	// }
+	// .col2 {
+	// 	width: 46.5%;
+	// 	padding-left: 2.5em;
+	// }
+}
+
+
+.col1 {
+	.understanding_1 & {
+		width: 461px;
+	}
+	.understanding_2 & {
+		width: 463px;
+	}
+	.understanding_3 & {
+		width: 461px;
+	}
+}

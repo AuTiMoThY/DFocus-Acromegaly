@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.diagnosis_1 {
+	.col1 {
+		width: 404px;
+	}
+}
+.diagnosis_4 {
+	.col1 {
+		width: 469px;
+	}
+}
+
+.assess-form {
+	li {
+		width: 100%;
+		float: none;
+		color: color($colors, nor, font_c1);
+		font-size: em(15);
+		letter-spacing: 1px;
+		margin-bottom: 1em;
+	}
+}

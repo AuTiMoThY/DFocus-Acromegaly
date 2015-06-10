@@ -70,13 +70,13 @@ class navAu extends PageUrlAu {
 		               );
 
 		$Nav = array(
-						'最新消息'        => $this->news,
-						'認識肢端肥大症'=> $understanding_sub,
-						'臨床症狀'=> $symptoms_sub,
-						'診斷與治療'=> $diagnosis_sub,
-						'與肢端肥大症共存'=> $coexisting_sub,
-						'就醫資訊'=> $information_sub,
-						'分享 & 影音'=> $media_sub
+						'最新消息<br><span class="en">NEWS</span>'        => $this->news,
+						'認識肢端肥大症<br><span class="en">UNDERSTANDING</span>'=> $understanding_sub,
+						'臨床症狀<br><span class="en">SYMPTOMS</span>'=> $symptoms_sub,
+						'診斷與治療<br><span class="en">DIAGNOSIS</span>'=> $diagnosis_sub,
+						'與肢端肥大症共存<br><span class="en">COEXISTING</span>'=> $coexisting_sub,
+						'就醫資訊<br><span class="en">INFORMATION</span>'=> $information_sub,
+						'分享 & 影音<br><span class="en">MEDIA</span>'=> $media_sub
 						);
 		$NavLen = 0;
 		$NavLen ++;
@@ -86,7 +86,7 @@ class navAu extends PageUrlAu {
 						# code...
 echo "<li class=\"main_nav-item nav-IPC item$NavLen\">";
 if (is_array($url)) {
-echo "	<a href=\"javascript:mainNavLink(goto$NavLen);\">";
+echo "	<a href=\"javascript:mainNavLink('goto$NavLen');\">";
 }else{
 echo "	<a href=\"$url\">";
 }
@@ -95,7 +95,7 @@ echo "	</a>";
 if (is_array($url)) {
 $subNavLen = 0;
 $subNavLen ++;
-echo "	<ul class=\"subNav\">";
+echo "	<ul class=\"subNav js-subNav\">";
 	foreach ($url as $subNav => $subUrl) {
 echo "		<li class=\"subNav-item item{$NavLen}_{$subNavLen}\">";
 echo "			<a href=\"{$subUrl}\">{$subNav}</a>";

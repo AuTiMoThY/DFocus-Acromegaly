@@ -17,7 +17,7 @@
 
 <link rel="stylesheet" href="plugin/FlexSlider/flexslider.css" />
 
-<!-- <link rel="stylesheet" href="plugin/fancybox/jquery.fancybox.css" /> -->
+<link rel="stylesheet" href="plugin/fancybox/jquery.fancybox.css" />
 <!-- <link rel="stylesheet" href="plugin/FlexSlider/flexslider.css" /> -->
 <!-- <link rel="stylesheet" href="css/effect2.css" /> -->
 

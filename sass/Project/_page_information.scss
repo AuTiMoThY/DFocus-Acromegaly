@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+.information {
+	.c1 {
+		position: relative;
+	}
+}
+
+
+$mapBlock_h: 55px;
+$color1: #ec959a;
+$color2: #abd07c;
+$color3: #1db2e7;
+$color4: #aea4e3;
+$color5: #fff;
+$bdcolor: #21445c;
+@mixin mapBlock() {
+	@include border-radius(5px);
+	border: 1px solid $bdcolor;
+}
+
+.map {
+	@include wh(pic13, png);
+	@include bg('pic13.png');
+	// margin: 0 auto;
+	position: relative;
+	left: 30%;
+	&>[class$="_map"] {
+		@include wh(100px, $mapBlock_h);
+		@include mapBlock;
+		position: absolute;
+		// @include box-shadow(1px 1px 2px #333);
+		cursor: pointer;
+		text-align: center;
+		line-height: $mapBlock_h;
+		&:hover {
+			@include box-shadow(1px 1px 2px #333);
+		}
+	}
+	@each $area, $txtColor, $x, $y, $color in (1, $color1, 5px, 100px, $color5),
+											  (2, $color2, 140px, 0px, $color5),
+											  (3, $color3, 355px, -15px, $color5),
+											  (4, $color4, 150px, 230px, $color5) {
+		.area#{$area}_map {
+			@include bg($color);
+			top: #{$x};
+			left: #{$y};
+			color: #{$txtColor};
+			font-weight: bolder;
+		}
+	}
+}
+/*------------------------------------------------------------------------*\
+		>>>   coexisting1    area_block
+\*------------------------------------------------------------------------*/
+.area_block {
+	@include wh2(280px auto);
+	@include mapBlock;
+	overflow: hidden;
+	opacity: 0;
+	// display: none;
+	@include transition(all 0.3s ease-out);
+	/*position*/
+	position: absolute;
+	top: 0;
+	left: -11%;
+	z-index: 2;
+
+	@each $area, $bgcolor in (1, $color1),
+							 (2, $color2),
+							 (3, $color3),
+							 (4, $color4) {
+		&.area#{$area} h3 {
+			@include bg($bgcolor);
+		}
+	}
+	h3.col_1 {
+		// position: absolute;
+		@include wh(100px, 100%);
+		margin-top: 0;
+		margin-bottom: 0;
+		border-right: 1px solid $bdcolor;
+		float: left;
+		/*font*/
+		color: #fff;
+		font-size: em(17);
+		font-weight: bold;
+		text-align: center;
+		letter-spacing: 1px;
+	}
+	.col_2.col_2 {
+		margin-left: 101px;
+		padding: 10px;
+	}
+	.hospital {
+		border-top: 1px dotted $bdcolor;
+		margin-top: 5px;
+		padding-top: 5px;
+		&:first-of-type {
+			border-top: none;
+			padding-top: 0;
+			margin-top: 0;
+		}
+	}
+	h2 {
+		margin-bottom: 0 !important;
+	}
+	li {
+		width: 100%;
+		float: none;
+		/*font*/
+		color: #172934;
+		font-size: em(15);
+		line-height: 21px;
+		letter-spacing: 1px;
+	}
+	&.active {
+		// display: block;
+		opacity: 1;
+		z-index: 3;
+		// @include transtion(all 0.3 ease-out);
+	}
+}
+.area_cnt {
+	width: 275px;
+	position: absolute;
+	top: 50%;
+	right: -80px;
+}

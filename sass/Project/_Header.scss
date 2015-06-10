@@ -1,36 +1,41 @@
 #top {
+	@include fixed($t:0, $l:0);
+	z-index: 91;
 	@include wh(100%, 3px);
 	@include bg(color($colors, nor, 2));
 }
 
+$header_padding: 5%;
+$header_h: 65px;
+$subNavBar_h: 28px;
 /*========================================================================*\
 		>>	global_hd  quick_bar  logo
 \*========================================================================*/
 header {
+	position: relative;
 	&.global_hd {
-		@include wh(100%, 65);
-		@include bg(#fff);
-		// @include background-image(linear-gradient(#00a1e9, #0086d1));
-		nav {
-			margin-left: 35%;
-			margin-right: 1%;
-		}
+		position: fixed;
+		z-index: 90;
+		top: 3px;
+		left: 0;
+		@include wh(100%, $header_h + $subNavBar_h + 2);
+		// @include bg(#fff);
+		padding-top: 2px;
+		overflow: hidden;
 	}// header.global_hd  END
-	&.quick_bar {
-		@include wh(100%, 45px - 1px);
-		@include bg(#dcdddd);
-		&:after {
-			@include psudoClass;
-			@include wh(100%, 1px);
-			@include bg(darken(#dcdddd, 20%));
-		}
-	}// header.quick_bar  END
+
 	&#logo {
-		height: 100%;
+		z-index: 50;
+		width: 30%;
+		height: $header_h;
 		@include bg(color($colors, nor, 1));
+		padding-left: $header_padding;
+		// float: left;
 		a {
-			@include wh;
-			display: block;
+			@include absolute($t: 10px, $r: 1em);
+		}
+		img {
+
 		}
 	}// header#logo  END
 }
@@ -38,26 +43,66 @@ header {
 		>>	main_nav
 \*========================================================================*/
 .main_nav {
-	height: 100%;
-	// position: relative;
+	position: relative;
+	z-index: 50;
+	width: 70%;
+	height: $header_h;
+	padding-right: $header_padding;
+	@include bg(#fff);
+	
 	ul {
 		height: 100%;
 	}
 	&-item {
-		@include VerticalAlign;
-
+		position: relative;
+		height: 100%;
+		// @include VerticalAlign;
+		
+		@include transition(all 0.3s ease(out-cubic));
 		a, span {
 			display: block;
 			text-align: center;
 		}
-		@each $navItem, $x, $y in (item1, 0, -51px),
-									   (item2, -79px, -51px),
-									   (item3, -155px, -51px),
-									   (item4, -243px, -51px),
-									   (item5, -358px, -51px),
-									   (item6, -485px, -51px) {
-			&.#{$navItem}:hover .main_nav-icon {
-				// @include bg('navIcon.png', $x, $y);
+
+		span {
+			color: #2d8ea1;
+			font-size: em(15);
+			font-weight: bold;
+			line-height: 20px;
+			.en {
+				font-size: em(9);
+				font-family: Verdana, Geneva, sans-serif;
+				font-weight: normal;
+				letter-spacing: 1px;
+			}
+			&.wrap {
+				position: relative;
+				z-index: 10;
+			}
+		}
+		&>a {
+			@include wh2;
+			padding: 0.8em 1.5em 0;
+		}
+		&::before {
+			@include psudoClass;
+			position: absolute;
+			z-index: 1;
+			left: 0.2em;
+			@include vc;
+			@include wh2(43 40);
+			@include bg('bg-navHover.png');
+			@include opacity(0);
+			@include transition(all 0.3s ease(in-out-quad));
+		}
+		&:hover {
+			@include bg(#efd468);
+			span {
+				color: #fff;
+				text-shadow: 1px 1px 1px rgba(#000, 0.8), 2px 2px 0px color($colors, nor, 2);
+			}
+			&::before {
+				@include opacity(1);
 			}
 		}
 	}// .main_nav-item  END
@@ -77,5 +122,46 @@ header {
 			}
 		}
 	}// .main_nav-icon  END
+}
+
+ul.subNav {
+	position: absolute;
+	left: 1em;
+	top: -100%;
+	z-index: -10;
+	@include opacity(0);
+	// display: none;
+	width: 100vw;
+	height: auto;
+	li {
+		padding: 0 0.8em;
+	}
+	a {
+		color: #fff;
+		font-size: em(13);
+		line-height: $subNavBar_h;
+		&:hover {
+			color: color($colors, nor, 2);
+		}
+	}
+	.js-hover & {
+		z-index: 10;
+		top: 100%;
+		@include opacity(1);
+		display: block;
+	}
+}
+
+nav.sub_nav-bg {
+	position: absolute;
+	z-index: 40;
+	bottom: $subNavBar_h - 3;
+	width: 100%;
+	height: $subNavBar_h;
+	@include background-image(linear-gradient(#00535f, #006878 30%, #006d7e));
+	@include transition(all 0.3s ease(in-out-quad));
+	&.active {
+		bottom: 0px;
+	}
 }
 
