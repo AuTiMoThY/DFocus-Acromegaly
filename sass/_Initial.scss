@@ -61,18 +61,18 @@ body {
 
 
 
-%head {
+#{headings()} {
 	margin-top:0.2em;
 	margin-bottom:0.5em;
 	line-height:1.2125em;
 	letter-spacing:2px;
 	font-family: $normal_font2;
 }
-@for $i from 1 through 6 {
-	h#{$i} {
-		@extend %head;
-	}
-}
+// @for $i from 1 through 6 {
+// 	h#{$i} {
+// 		@extend %head;
+// 	}
+// }
 
 p {
 	line-height:1.6;

@@ -40,6 +40,12 @@ function webBuilding() {
 			case "goto5":
 				location.href="coexisting_1.php";
 				break;
+			case "goto6":
+				location.href="information.php";
+				break;
+			case "goto7":
+				location.href="media.php";
+				break;
 
 		}
 	}

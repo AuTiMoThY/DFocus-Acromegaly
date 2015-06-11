@@ -102,6 +102,7 @@ echo "			<a href=\"{$subUrl}\">{$subNav}</a>";
 echo "		</li>";
 ++$subNavLen;
 	}
+echo "		<li class=\"padding\"></li>";
 echo "	</ul>";
 }
 echo "</li>";

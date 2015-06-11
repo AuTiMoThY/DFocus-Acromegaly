@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 .information {
+	position: relative;
 	.c1 {
 		position: relative;
 	}
@@ -15,7 +16,7 @@ $color4: #aea4e3;
 $color5: #fff;
 $bdcolor: #21445c;
 @mixin mapBlock() {
-	@include border-radius(5px);
+	@include border-radius(3px);
 	border: 1px solid $bdcolor;
 }
 
@@ -23,8 +24,7 @@ $bdcolor: #21445c;
 	@include wh(pic13, png);
 	@include bg('pic13.png');
 	// margin: 0 auto;
-	position: relative;
-	left: 30%;
+	@include absolute($l:40%);
 	&>[class$="_map"] {
 		@include wh(100px, $mapBlock_h);
 		@include mapBlock;
@@ -34,7 +34,9 @@ $bdcolor: #21445c;
 		text-align: center;
 		line-height: $mapBlock_h;
 		&:hover {
+			@include bg(rgba(#2d8ea1, 1));
 			@include box-shadow(1px 1px 2px #333);
+			color: #fff;
 		}
 	}
 	@each $area, $txtColor, $x, $y, $color in (1, $color1, 5px, 100px, $color5),
@@ -61,9 +63,7 @@ $bdcolor: #21445c;
 	// display: none;
 	@include transition(all 0.3s ease-out);
 	/*position*/
-	position: absolute;
-	top: 0;
-	left: -11%;
+	@include absolute(10%, $l:6em);
 	z-index: 2;
 
 	@each $area, $bgcolor in (1, $color1),
@@ -122,8 +122,339 @@ $bdcolor: #21445c;
 	}
 }
 .area_cnt {
-	width: 275px;
+	width: 245px;
 	position: absolute;
 	top: 50%;
-	right: -80px;
+	right: 6em;
+	p {
+		padding: 0.8em;
+		@include bg(rgba(color($colors, nor, font_c1), 0.1));
+		border-radius: 10px;
+		@include adjFontSize(15px, 1.2);
+	}
+	h2 {
+		position: relative;
+		&::before {
+			@include psudoClass;
+			display: inline-block;
+			vertical-align: -0.5ex;
+			@include wh2(30 18);
+			@include bg-i(-76, 0);
+			margin-right: 0.8em;
+		}
+	}
+}
+
+
+/*------------------------------------------------------------------------*\
+		>>   upload_pic 大手照過來
+\*------------------------------------------------------------------------*/
+$step1: step1, 40, 29, 0;
+$step2: step2, 40, 38, -30;
+$step3: step3, 40, 30, -69;
+
+
+.upload_pic {
+	&-steps {
+		width: 80%;
+		margin: 0 auto 2em;
+		div {
+			position: relative;
+			font-weight: bolder;
+			text-align: center;
+			line-height: 1.5;
+			padding-left: 0.8em;
+			&.txt-fc1 {
+				color: #9fa0a0;
+			}
+		}
+		@each $steps, $w, $h, $y in $step1, $step2, $step3 {
+			.#{$steps} {
+				.icon {
+					&::before {
+						@include psudoClass;
+						@include absolute(0, 0, 0, 0);
+						margin: auto;
+						@include wh2($w $h);
+						@include bg-i(-151, $y);
+					}
+				}
+			}
+		}
+		.icon {
+			@include absolute($l:0);
+			display: inline-block;
+			vertical-align: middle;
+			@include bg(#9fa0a0);
+			@include circle(42px);
+			overflow: hidden;
+		}
+		.step1, .step2 {
+			&::after {
+				@include psudoClass;
+				@include absolute(0, $r:0, $b:0);
+				margin: auto;
+				@include wh2(22 15);
+				@include bg-i(-76, -35);
+			}
+			&.active {
+				&::after {
+					@include bg-i(-76, -19);
+				}
+			}
+		}
+		.active {
+			.icon {
+				@include bg(color($colors, nor, font_c1));
+			}
+			&.txt-fc1 {
+				color: color($colors, nor, font_c1);
+			}
+		}
+	}
+	.list-item-header {
+		text-align: center;
+
+	}
+	.list-item-footer {
+		@include wh2(100% 40);
+		@include bg(color($colors, nor, font_c1));
+		color: #fff;
+		text-align: center;
+		line-height: 40px;
+		&::after {
+			display: none;
+		}
+	}
+	&-cnt {
+		padding: 1.8em 3.5em;
+		p {
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+			&.txt-fc1 {
+				margin-bottom: 1em;
+			}
+			&.txt-r {
+				margin-bottom: 2em;
+			}
+		}
+	}
+	section.btns {
+		display: table;
+		margin: auto;
+	}
+	&-form {
+		&-data {
+			table, tr {
+				width: 100%;
+			}
+			tr {
+				// padding: 0.5em 3em;
+				border-bottom: 1px solid #21445c;
+			}
+			td {
+				width: 50%;
+				height: 35px;
+				vertical-align: middle;
+				&:first-of-type {
+					padding-left: 4em;
+				}
+			}
+			.input_required {
+				&::before {
+					content: '＊';
+					color: color($colors, nor, font_c1);
+					line-height: 35px;
+				}
+			}
+			.frm__field, .frm__label {
+				@include ib;
+			}
+			.frm__field {
+				background-color: transparent;
+				border: none;
+				color: color($colors, nor, font_c2);
+				box-shadow: none;
+				@include input-placeholder {
+					color: color($colors, nor, font_c2);
+				}
+				&[type="text"] {
+					width: 200px;
+				}
+			}
+			.frm__label {
+				color: color($colors, nor, font_c1);
+				font-weight: bolder;
+			}
+		}
+	}
+}
+
+
+.faq {
+	&.cnt_md {
+		padding: 2.2em 1em;
+	}
+	aside {
+		@include wh2(258 auto);
+		min-height: 620px;
+		padding-bottom: 0.8em;
+		@include bg('bg-aside.png');
+		background-color: #fff;
+		background-size: cover;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+	.aside {
+		&-wrap {}
+		&-header {
+			@include replace-text-with-dimensions("faq-asideHeader.png");
+		}
+		&-block {
+			padding: 1em 0.5em;
+			p.txt-fc1 {
+				margin-top: 1.2em;
+				margin-bottom: 0;
+			}
+		}
+		&-footer {
+			position: relative;
+			@include bg(color($colors, nor, font_c1));
+			p {
+				color: #fff;
+				padding: 0.8em 1.5em;
+			}
+			&::before {
+				position: absolute;
+				top: -5px;
+				@include psudoClass;
+				@include wh2(100% 1px);
+				@include bg(color($colors, nor, font_c1));
+			}
+			&::after {
+				display: none;
+			}
+		}
+	}
+	&-pic {
+		position: relative;
+		z-index: 1;
+		@include wh2(100% 0);
+		padding-bottom: (180 / 285) * 100%;
+		border: 3px solid #fff;
+		box-shadow: rgba(#00525f, 0.75) 2px 2px 2px, #006d7e 2px 2px 4px 0px inset;
+		&:before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 2;
+			@include psudoClass;
+			@include wh2;
+			box-shadow: inset 1px 1px 4px #006d7e;
+		}
+		img {
+			@include absolute(0, 0, 0, 0);
+			margin: auto;
+			z-index: 1;
+			max-width: none;
+			width: 100%;
+		}
+	}
+	&-container {
+		width: 75%;
+		padding-left: 1em;
+		.leader {
+			position: relative;
+			@include wh2(100% 35);
+			padding: 0 3em;
+			@include bg(#98c7d2);
+			color: #172934;
+			line-height: 35px;
+		}
+	}
+	&-msg {
+		&-people {
+			margin-right: 3em;
+		}
+		&-cnt {
+			padding: 1.2em 3em;
+			color: #172934;
+			@include adjFontSize(15px, 1.2);
+		}
+		&-reply {
+			padding: 1.2em 3em;
+			color: #172934;
+			@include adjFontSize(15px, 1.2);
+			border-top: 1px solid #006d7e;
+			li {
+				float: none;
+				width:100%;
+			}
+			textarea {
+				margin-bottom: 1.2em;
+			}
+		}
+	}
+}
+
+#edit_reply {
+	h3 {
+		margin: 1.2em 0;
+	}
+}
+
+
+.leave_a_message {
+	.cnt_md {
+		width: 100%;
+	}
+	li {
+		float: none;
+		width: 100%;
+		height: auto;
+		padding: 0 3em;
+		line-height: 35px;
+		border-top: 1px solid #172934;
+		&:first-of-type {
+			border-top: none;
+		}
+		&.textarea {
+			height: 170px;
+			padding: 10px 3em;
+		}
+	}
+	input {
+		&.frm_field {
+			&-title {
+				width: 500px;
+			}
+			&-name {
+				width: 200px;
+			}
+			&-email {
+				width: 300px;
+			}
+		}
+	}
+	textarea {
+		width: 100%;
+		height: 150px;
+	}
+	[class*="frm_field"] {
+		border: none;
+		background: none;
+		box-shadow: none;
+	}
+	.btns {
+		display: table;
+		float: right;
+		input {
+			margin: 0;
+			color: #fff;
+		}
+	}
+	.ftBar {
+		@include bg(#006d7e);
+	}
 }

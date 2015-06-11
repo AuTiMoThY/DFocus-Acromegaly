@@ -56,10 +56,24 @@ article.cnt_md {
 		}
 	}
 	&.s4 {
-		@include bg(#fff);
+		@include bg(rgba(#fff, 0.3));
 		border-radius: 10px;
 		border: 1px solid #172934;
 		overflow: hidden;
+	}
+	&.c6 {
+		border-radius: 10px;
+		border: 1px solid color($colors, nor, font_c2);
+		overflow: hidden;
+		.c6_title {
+			padding: 0 1.2em;
+			line-height: 40px;
+			@include bg(color($colors, nor, font_c2));
+			margin-top: 0;
+			margin-bottom: 0;
+			color: #fff;
+			font-weight: bolder;
+		}
 	}
 	&-header {
 		width: 100%;
