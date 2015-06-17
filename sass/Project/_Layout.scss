@@ -24,6 +24,9 @@ main {
 	@include bg(rgba(#FFF, 0.75));
 	&>.container {
 		padding: 2.2em 3.8em 0;
+		@include respondTo(1560){
+			padding: 2.2em 2.5em 0;
+		};
 	}
 }
 
@@ -41,7 +44,9 @@ article.cnt_md {
 	width: 100%;
 	padding: 2.2em 5.5em 5em;
 	min-height: 750px;
-
+	@include respondTo(1560){
+		padding: 2.2em 1em 5em;
+	};
 }
 
 

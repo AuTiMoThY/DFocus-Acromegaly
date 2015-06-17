@@ -53,7 +53,7 @@
 			<div class="col_1">
 				<h1 class="title01 txt_img-index-video hide_txt ib">焦點影片</h1>
 				<div class="youtube ib">
-					<a href="https://www.youtube.com/embed/FIhop2QqQMw" class="fancybox_youtube">
+					<a href="media_cnt.php?type=media&id=0" class="">
 						<img src="<?php path_au('temp'); ?>tem1.jpg" alt="">
 						<i class="icon icon-playBtn"></i>
 					</a>
@@ -61,7 +61,7 @@
 			</div>
 			<div class="col_2 q">
 				<h1 class="title01 txt_img-index-news hide_txt ib">最新消息</h1>
-				<ul id="marqueeBtn" class="btn">
+				<ul id="marqueeBtn" class="marqueeBtn">
 					<li id="marquee_prev_btn" class='marquee_btn prev_btn'></li>
 					<li id="marquee_next_btn" class='marquee_btn next_btn'></li>
 				</ul>
@@ -94,7 +94,7 @@
 			<div class="col_3">
 				<h1 class="title01 txt_img-index-column hide_txt ib">駐站醫師</h1>
 				<div class="column-pic pic ib">
-					<img src="<?php path_au('temp'); ?>tem3.jpg" alt="">
+					<a href=""><img src="<?php path_au('temp'); ?>tem3.jpg" alt=""></a>
 				</div>
 			</div>
 		</div>

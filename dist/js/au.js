@@ -109,6 +109,14 @@ function isHover($this, $thisClass) {
 	};
 }
 
+function isOpen($this, $thisClass) {
+	if (!($this.hasClass('open'))) {
+		$this.addClass('open');
+	} else{
+		$thisClass.removeClass('open');
+	};
+}
+
 /*--------------------------------------*\
 	PIC大圖輪播
 \*--------------------------------------*/

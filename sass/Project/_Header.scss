@@ -30,11 +30,58 @@ header {
 		padding-top: 2px;
 		overflow: hidden;
 		.search_form {
+			position: relative;
 			height: 65px;
 			overflow: hidden;
+			@include respondTo(1560){
+				width: 5%;
+				overflow: visible;
+			};
+			form {
+				@include VerticalAlign;
+				width: 100%;
+				height: 2.3125em;
+			}
 			&-input {
 				width: 200px;
 				// height: 35px;
+				border-radius: 25px;
+				background-color: transparent;
+				border-color: #a3cdd7;
+				color: #a3cdd7;
+				&:focus {
+					box-shadow: none;
+				}
+				@include respondTo(1560){
+					@include absolute($r:0, $b:-40px);
+					width: 200px;
+					background-color: #fff;
+					display: none;
+				};
+			}
+			&-submit {
+				@include absolute(5px, 10px);
+				@include wh2(21);
+				@include bg-i(-76, -55);
+				box-shadow: none;
+				border: none;
+				&:active {
+					@include hover;
+				}
+				&:not(.mScreen) {
+					@include respondTo(1560){
+						top: 50px;
+						display: none;
+					};
+				}
+				&.mScreen {
+					@include respondTo(1920){
+						display: none;
+					};
+					@include respondTo(1560){
+						display: block;
+					};
+				}
 			}
 		}
 	}// header.global_hd  END
@@ -64,7 +111,9 @@ header {
 	height: $header_h;
 	padding-right: $header_padding;
 	@include bg(#fff);
-	
+	@include respondTo(1560){
+		padding-right: 0;
+	};
 	ul {
 		height: 100%;
 	}
@@ -98,6 +147,9 @@ header {
 		&>a {
 			@include wh2;
 			padding: 0.8em 1.5em 0;
+			@include respondTo(1560){
+				padding: 0.8em 1em 0;
+			};
 		}
 		&::before {
 			@include psudoClass;
@@ -189,4 +241,6 @@ nav.sub_nav-bg {
 	}
 
 }
+
+
 

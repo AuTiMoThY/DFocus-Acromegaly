@@ -74,6 +74,9 @@ $bdcolor: #21445c;
 			@include bg($bgcolor);
 		}
 	}
+	@include respondTo(1560){
+		left: 1em;
+	};
 	h3.col_1 {
 		// position: absolute;
 		@include wh(100px, 100%);
@@ -126,6 +129,9 @@ $bdcolor: #21445c;
 	position: absolute;
 	top: 50%;
 	right: 6em;
+	@include respondTo(1560){
+		right: 1em;
+	};
 	p {
 		padding: 0.8em;
 		@include bg(rgba(color($colors, nor, font_c1), 0.1));
@@ -268,6 +274,13 @@ $step3: step3, 40, 30, -69;
 					line-height: 35px;
 				}
 			}
+			.input {
+				&--textarea {
+					display: block;
+					padding: 1em 4em 1em 0;
+
+				}
+			}
 			.frm__field, .frm__label {
 				@include ib;
 			}
@@ -287,12 +300,65 @@ $step3: step3, 40, 30, -69;
 				color: color($colors, nor, font_c1);
 				font-weight: bolder;
 			}
+			.frm__textarea {
+				height: 300px;
+				border: none;
+				background-color: transparent;
+				box-shadow: none;
+				resize: none;
+				&:focus {
+					border: 1px solid #d3d3d3;
+					background-color: #fff;
+				}
+			}
+			&.frm--uploadpic {
+				td {
+					position: relative;
+					padding-right: 4em;
+				}
+				p {
+					display: block;
+					@include VerticalAlign;
+					margin-right: 5em;
+					color: #004f5b;
+				}
+				img {
+					border: 3px solid #fff;
+				}
+				.input {
+					padding: 0.8em 0;
+				}
+				.code_block {
+					margin: auto;
+				}
+			}
 		}
+	}
+}
+
+.upload_pic-steps3 {
+	.list-item-footer {
+		height: auto;
+	}
+	.code_block {
+		margin: auto;
+		float: none;
+	}
+	&-msg {
+		text-align: center;
+		color: #fff;
+		@include adjFontSize(17px);
+		line-height: 65px;
 	}
 }
 
 
 .faq {
+	&-wrap {
+		width: 70%;
+		margin: 0 auto 3em;
+		min-width: 800px;
+	}
 	&.cnt_md {
 		padding: 2.2em 1em;
 	}
@@ -300,7 +366,10 @@ $step3: step3, 40, 30, -69;
 		@include wh2(258 auto);
 		min-height: 620px;
 		padding-bottom: 0.8em;
-		@include bg('bg-aside.png');
+		background-image: inline-image('bg-aside.png');
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		// @include bg('bg-aside.png');
 		background-color: #fff;
 		background-size: cover;
 		border-radius: 10px;
@@ -372,6 +441,9 @@ $step3: step3, 40, 30, -69;
 			color: #172934;
 			line-height: 35px;
 		}
+		@include respondTo(1560) {
+			width: 72%;
+		};
 	}
 	&-msg {
 		&-people {
@@ -396,7 +468,30 @@ $step3: step3, 40, 30, -69;
 			}
 		}
 	}
+	&-item {
+		width: 100%;
+		border-top: 1px solid #004f5b;
+		padding: 0 3em;
+		float: none;
+		&:first-of-type {
+			border-top: none;
+		}
+		h3 {
+			line-height: 43px;
+			cursor: pointer;
+			color: #004f5b;
+			font-weight: bolder;
+		}
+		&-a {
+			overflow: hidden;
+			color: #004f5b;
+			padding: 0 0 1.8em;
+			height: auto;
+		}
+	}
 }
+
+
 
 #edit_reply {
 	h3 {

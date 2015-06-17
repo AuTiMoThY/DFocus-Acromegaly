@@ -55,42 +55,65 @@
 							<table>
 								<tr>
 									<td>
-      <span class="input input--df input_required">
-           <label class="frm__label" for="acroName">姓名：</label>
-           <input class="frm__field" type="text" name="acroname" id="acroName" placeholder="請輸入姓名">
-      </span>
+<span class="input input--df input_required">
+	<label class="frm__label" for="acroName">姓名：</label>
+	<input class="frm__field" type="text" name="acroname" id="acroName" placeholder="請輸入姓名">
+</span>
 									</td>
 									<td>
-      <span class="input input--df input_required">
-           <label class="frm__label" for="acroSex">性別：</label>
-           <input class="frm__field frm__radio" type="radio" name="acrosex" id="acroSexM">
-           <label class="frm__label frm__radio " for="acroSexM">男</label>
-           <input class="frm__field frm__radio" type="radio" name="acrosex" id="acroSexF">
-           <label class="frm__label frm__radio " for="acroSexF">女</label>
-      </span>
+<span class="input input--df input_required">
+	<label class="frm__label" for="acroSex">性別：</label>
+	<input class="frm__field frm__radio" type="radio" name="acrosex" id="acroSexM">
+	<label class="frm__label frm__radio " for="acroSexM">男</label>
+	<input class="frm__field frm__radio" type="radio" name="acrosex" id="acroSexF">
+	<label class="frm__label frm__radio " for="acroSexF">女</label>
+</span>
 									</td>
 								</tr>
 								<tr>
-									<td></td>
-									<td></td>
+									<td>
+<span class="input input--df input_required">
+	<label for="acroAge" class="frm__label">年齡：</label>
+	<input type="text" name="acroage" id="acroAge" class="frm__field" placeholder="請輸入年齡">
+</span>
+									</td>
+									<td>
+<span class="input input--df">
+	<label for="acroEmail" class="frm__label">電子信箱：</label>
+	<input type="text" name="acroemail" id="acroEmail" class="frm__field" placeholder="請輸入常用E-mail">
+</span>
+									</td>
 								</tr>
 								<tr>
-									<td></td>
-									<td></td>
+									<td>
+<span class="input input--df input_required">
+	<label for="acroTel" class="frm__label">聯絡市話：</label>
+	<input type="text" name="acrotel" id="acroTel" class="frm__field" placeholder="請輸入聯絡市話">
+</span>
+									</td>
+									<td>
+<span class="input input--df input_required">
+	<label for="acroPhone" class="frm__label">行動電話：</label>
+	<input type="text" name="acrophone" id="acroPhone" class="frm__field" placeholder="請輸入行動電話">
+</span>
+									</td>
 								</tr>
 								<tr>
-									<td colspan="2"></td>
+									<td colspan="2" class="">
+<span class="input input--df input--textarea">
+	<textarea name="acromsg" id="acroMsg" class="frm__textarea" placeholder="症狀描述"></textarea>
+</span>
+									</td>
 								</tr>
 							</table>
 						</form>
 					</div>
 					<footer class="list-item-footer agree">
-						<input type="checkbox" id="agree">
-						<label for="agree" class="agree-label">已閱讀</label>
+						<p style="line-height:40px;"><b>請確認您的資訊正確無誤</b></p>
 					</footer>
 				</section>
 				<section class="row3 btns">
-					<a href="<?php path_au('index'); ?>" class="btn btn-default btn-cancel">取消</a>
+					<a href="upload_step1.php" class="btn btn-default btn-cancel">上一步</a>
 					<button type="button" class="btn btn-default btn-next" onclick="submitgo();">下一步</button>
 				</section>
 			</article>
@@ -157,20 +180,8 @@ var center = '<div id="notifications-full">';
 
 
 function submitgo(){
-	agree = $("input#agree:checked").length;
 
-	if (agree < 1) {
-		$("#notifications-full").remove();
-		$("#notifications").append(center);
-		$("#notifications").addClass('active');
-		$("#notifications-full").addClass('animated bounce');
-		$(".agree-label").css({
-			'color': '#e9c636'
-		});
-		refresh_close();
-	}else {
-		location.href="upload_step2.php";
-	};
+	location.href="upload_step3.php";
 }
 </script>
 

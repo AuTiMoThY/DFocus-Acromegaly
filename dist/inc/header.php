@@ -18,9 +18,10 @@
 
 			</ul>
 			<div class="search_form ib">
-				<form action="">
+				<form action="gotosearch.php">
 					<input type="text" name="" id="" class="search_form-input" placeholder="請輸入關鍵字搜尋...">
-					<input type="button" name="" id="" class="search_form-submit icon icon-search">
+					<input type="submit" name="" id="" class="search_form-submit icon icon-search" value="">
+					<button type="button" class="mScreen search_form-submit"><i class="icon icon-search"></i></button>
 				</form>
 			</div>
 		</nav>

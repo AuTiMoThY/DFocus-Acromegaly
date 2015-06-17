@@ -509,6 +509,9 @@ $easeSean: (
   @else if $screenWidth == Mobile {
     @media screen and (max-width: 480px) { @content; }
   }
+  @else {
+  	@media screen and (max-width: #{$screenWidth}px) { @content; }
+  }
 }
 
 //========================================================================*\

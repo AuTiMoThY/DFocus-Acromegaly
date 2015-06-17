@@ -2,6 +2,13 @@
 	include_once 'config.php';
 	include_once INC_PATH.'headleader.php';
 	require_once INC_PATH.'aunav.php';
+
+	function areaActive($area){
+		$getArea = (isset($_GET['area'])) ? $_GET['area'] : "1";
+		if ($area === $getArea) {
+			echo "active" ;
+		}
+	}
 ?>
 <title>就醫資訊 | 肢端肥大症-衛教資訊網</title>
 
@@ -44,12 +51,12 @@
 
 			<article class="cnt_md information clearfix">
 				<div class="map">
-					<div id="area1" class="area1_map">北部地區</div>
-					<div id="area2" class="area2_map">中部地區</div>
-					<div id="area3" class="area3_map">南部地區</div>
+					<div id="area1" class="area1_map" onclick="javascript: location.href='information.php?area=1'">北部地區</div>
+					<div id="area2" class="area2_map" onclick="javascript: location.href='information.php?area=2'">中部地區</div>
+					<div id="area3" class="area3_map" onclick="javascript: location.href='information.php?area=3'">南部地區</div>
 				</div>
 				<!-- <img src="images/pic13.png" alt="就醫資訊, 庫欣病醫療照顧專家"> -->
-				<div id="area1Block" class="area_block area1 active">
+				<div id="area1Block" class="area_block area1 <?php areaActive('1'); ?>">
 					<h3 class="col_1">北部地區</h3>
 					<div class="col_2">
 						<div class="hospital">
@@ -75,7 +82,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="area2Block" class="area_block area2">
+				<div id="area2Block" class="area_block area2 <?php areaActive('2'); ?>">
 					<h3 class="col_1">中部地區</h3>
 					<div class="col_2">
 						<div class="hospital">
@@ -101,7 +108,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="area3Block" class="area_block area3">
+				<div id="area3Block" class="area_block area3 <?php areaActive('3'); ?>">
 					<h3 class="col_1">南部地區</h3>
 					<div class="col_2">
 						<div class="hospital">
@@ -193,30 +200,30 @@ $(function() {
 		'line-height': col2H4 + 'px'
 	});
 
-	$('#area1').click(function() {
-		area1B.addClass('active');
-		area2B.removeClass('active');
-		area3B.removeClass('active');
-		area4B.removeClass('active');
-	});
-	$('#area2').click(function() {
-		area1B.removeClass('active');
-		area2B.addClass('active');
-		area3B.removeClass('active');
-		area4B.removeClass('active');
-	});
-	$('#area3').click(function() {
-		area1B.removeClass('active');
-		area2B.removeClass('active');
-		area3B.addClass('active');
-		area4B.removeClass('active');
-	});
-	$('#area4').click(function() {
-		area1B.removeClass('active');
-		area2B.removeClass('active');
-		area3B.removeClass('active');
-		area4B.addClass('active');
-	});
+	// $('#area1').click(function() {
+	// 	area1B.addClass('active');
+	// 	area2B.removeClass('active');
+	// 	area3B.removeClass('active');
+	// 	area4B.removeClass('active');
+	// });
+	// $('#area2').click(function() {
+	// 	area1B.removeClass('active');
+	// 	area2B.addClass('active');
+	// 	area3B.removeClass('active');
+	// 	area4B.removeClass('active');
+	// });
+	// $('#area3').click(function() {
+	// 	area1B.removeClass('active');
+	// 	area2B.removeClass('active');
+	// 	area3B.addClass('active');
+	// 	area4B.removeClass('active');
+	// });
+	// $('#area4').click(function() {
+	// 	area1B.removeClass('active');
+	// 	area2B.removeClass('active');
+	// 	area3B.removeClass('active');
+	// 	area4B.addClass('active');
+	// });
 
 });
 </script>

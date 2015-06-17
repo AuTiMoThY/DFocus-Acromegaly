@@ -19,7 +19,7 @@ $icon-layout: horizontal;
 }
 .txt_title {
 	&-title {
-		@each $name in news, understanding_1, understanding_2, understanding_3, symptoms_1, symptoms_2, diagnosis_1, diagnosis_2, diagnosis_3, diagnosis_4, diagnosis_5, coexisting_1, coexisting_2, coexisting_3, information, upload_pic, faq, msg, media, links {
+		@each $name in news, understanding_1, understanding_2, understanding_3, symptoms_1, symptoms_2, diagnosis_1, diagnosis_2, diagnosis_3, diagnosis_4, diagnosis_5, coexisting_1, coexisting_2, coexisting_3, information, upload_pic, faq, msg, media, links, discuss, search {
 			&-#{$name} {
 				@include wh2(txt_title-sprite-width(title-#{$name}) txt_title-sprite-height(title-#{$name}));
 			}
@@ -74,6 +74,9 @@ button.icon {
 		}
 		&-step2-row2 {
 			@include bg-i(-110, -82);
+		}
+		&-step3-row2 {
+			@include bg-i(-110, -123);
 		}
 	}
 	#notifications-full-icon & {
