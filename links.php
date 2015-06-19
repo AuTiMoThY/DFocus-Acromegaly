@@ -85,9 +85,8 @@
 
 		</div><!-- /.container  END  !! -->
 		<div class="change_page clearfix">
-			<span class="next right"><a href="<?php webPageUrlAu('links'); ?>" class="ib">相關資源連結</a></span>
+			<span class="prev left"><a href="<?php webPageUrlAu('media'); ?>" class="ib">衛教影音</a></span>
 		</div>
-
 	</div>
 </main>
 

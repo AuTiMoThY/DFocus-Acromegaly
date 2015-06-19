@@ -63,6 +63,7 @@
 		position: relative;
 		width: 95%;
 		max-width: 1600px;
+		min-width: 1000px;
 		margin: auto;
 	}
 	[class^="col"] {
@@ -76,13 +77,23 @@
 		.youtube {
 			// @include wh2();
 		}
+		@include respondTo(1366){
+			width: (367/1591)*100%;
+		};
 	}
 	.col_2 {
 		width: (812/1591)*100%;
 		margin: 0 (35/1591)*100%;
+		@include respondTo(1366){
+			width: (822/1591)*100%;
+			margin: 0 (20/1591)*100%;
+		};
 	}
 	.col_3 {
 		width: (351/1591)*100%;
+		@include respondTo(1366){
+			width: (361/1591)*100%;
+		};
 	}
 	.title01 {
 		// position: absolute;
@@ -101,6 +112,7 @@
 			position: relative;
 			width: 100%;
 			height: 120px;
+			overflow: hidden;
 			.pic {
 				@include wh2(180 120);
 			}
@@ -146,6 +158,10 @@
 			@include respondTo(1366){
 				width: 66%;
 			};
+			@include respondTo(1280){
+				padding-left: 0.8em;
+				width: 63.5%;
+			};
 		}
 	}
 	.column-pic {
@@ -154,6 +170,9 @@
 		border: 4px solid #fff;
 		@include respondTo(1366){
 			@include wh2(230 148);
+		};
+		@include respondTo(1280){
+			@include wh2(215 139);
 		};
 	}
 }
@@ -179,6 +198,9 @@
 		}
 		@include respondTo(1366){
 			@include wh2(230 149);
+		};
+		@include respondTo(1280){
+			@include wh2(215 140);
 		};
 	}
 	&:hover {

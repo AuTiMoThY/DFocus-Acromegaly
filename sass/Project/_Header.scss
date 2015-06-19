@@ -14,6 +14,7 @@
 
 $header_padding: 5%;
 $header_h: 65px;
+$header_h2: 55px;
 $subNavBar_h: 28px;
 /*========================================================================*\
 		>>	global_hd  quick_bar  logo
@@ -29,6 +30,9 @@ header {
 		// @include bg(#fff);
 		padding-top: 2px;
 		overflow: hidden;
+		@include respondTo(1366){
+			height: $header_h2 + $subNavBar_h + 2;
+		};
 		.search_form {
 			position: relative;
 			height: 65px;
@@ -87,14 +91,29 @@ header {
 	}// header.global_hd  END
 
 	&#logo {
+		position: relative;
 		z-index: 50;
 		width: 30%;
 		height: $header_h;
 		@include bg(color($colors, nor, 1));
 		padding-left: $header_padding;
 		// float: left;
+		@include respondTo(1560){
+			width: 20%;
+			padding: 0 0.8em;
+		};
+		@include respondTo(1366){
+			height: $header_h2;
+		};
 		a {
 			@include absolute($t: 10px, $r: 1em);
+			@include respondTo(1560){
+				display: table;
+				@include vc;
+				right: 10px;
+				width: 80%;
+				margin: auto;
+			};
 		}
 		img {
 
@@ -112,10 +131,18 @@ header {
 	padding-right: $header_padding;
 	@include bg(#fff);
 	@include respondTo(1560){
+		width: 80%;
 		padding-right: 0;
+	};
+	@include respondTo(1366){
+		height: $header_h2;
 	};
 	ul {
 		height: 100%;
+		@include respondTo(1366){
+			position: relative;
+			top: -5px;
+		};
 	}
 	&-item {
 		position: relative;
@@ -149,6 +176,9 @@ header {
 			padding: 0.8em 1.5em 0;
 			@include respondTo(1560){
 				padding: 0.8em 1em 0;
+			};
+			@include respondTo(1366){
+				padding: 0.4em 0.6em 0;
 			};
 		}
 		&::before {

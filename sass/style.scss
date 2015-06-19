@@ -306,3 +306,49 @@
 	text-align:center;
 
 }
+
+
+
+
+	.dashboard-stat.color1 {
+		background-color: #ffb848;
+		.more {
+			@include bg(darken(#ffb848, 20%));
+		}
+	}
+	.dashboard-stat.color2 {
+		background-color: #35aa47;
+		.more {
+			@include bg(darken(#35aa47, 20%));
+		}
+	}
+	.dashboard-stat.color3 {
+		background-color: #852b99;
+		.more {
+			@include bg(darken(#852b99, 20%));
+		}
+	}
+	.dashboard-stat.color4 {
+		background-color: #4b8df8;
+		.more {
+			@include bg(darken(#4b8df8, 20%));
+		}
+	}
+	.dashboard-stat.color5 {
+		background-color: #e91e63;
+		.more {
+			@include bg(darken(#e91e63, 20%));
+		}
+	}
+	.dashboard-stat.color6 {
+		background-color: #673ab7;
+		.more {
+			@include bg(darken(#673ab7, 20%));
+		}
+	}
+	.dashboard-stat.color7 {
+		background-color: #4caf50;
+		.more {
+			@include bg(darken(#4caf50, 20%));
+		}
+	}

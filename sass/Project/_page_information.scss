@@ -444,6 +444,9 @@ $step3: step3, 40, 30, -69;
 		@include respondTo(1560) {
 			width: 72%;
 		};
+		@include respondTo(1510) {
+			width: 70%;
+		};
 	}
 	&-msg {
 		&-people {
@@ -470,6 +473,7 @@ $step3: step3, 40, 30, -69;
 	}
 	&-item {
 		width: 100%;
+		min-height: 45px;
 		border-top: 1px solid #004f5b;
 		padding: 0 3em;
 		float: none;
@@ -477,7 +481,10 @@ $step3: step3, 40, 30, -69;
 			border-top: none;
 		}
 		h3 {
-			line-height: 43px;
+			margin-top: 0;
+			margin-bottom: 0;
+			padding-top: 0.8em;
+			line-height: 1.2;
 			cursor: pointer;
 			color: #004f5b;
 			font-weight: bolder;
@@ -485,8 +492,10 @@ $step3: step3, 40, 30, -69;
 		&-a {
 			overflow: hidden;
 			color: #004f5b;
-			padding: 0 0 1.8em;
+			padding: 1em 0 1.8em;
 			height: auto;
+			letter-spacing: 1px;
+			line-height: 1.4;
 		}
 	}
 }
