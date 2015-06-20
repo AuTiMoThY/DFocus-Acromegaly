@@ -18,10 +18,10 @@
 
 			</ul>
 			<div class="search_form ib">
-				<form action="gotosearch.php">
-					<input type="text" name="" id="" class="search_form-input" placeholder="請輸入關鍵字搜尋...">
-					<input type="submit" name="" id="" class="search_form-submit icon icon-search" value="">
-					<button type="button" class="mScreen search_form-submit"><i class="icon icon-search"></i></button>
+				<form action="gotosearch.php" class="js-search_form">
+					<input type="text" name="" id="" class="search_form-input js-search_form-input" placeholder="請輸入關鍵字搜尋...">
+					<input type="submit" name="" id="" class="search_form-submit icon icon-search js-search_form-submit" value="">
+					<button type="button" class="mScreen search_form-submit js-search_form-btn"><i class="icon icon-search"></i></button>
 				</form>
 			</div>
 		</nav>

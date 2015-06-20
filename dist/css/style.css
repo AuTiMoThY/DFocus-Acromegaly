@@ -813,6 +813,7 @@ header.global_hd {
 }
 header.global_hd .search_form {
   position: relative;
+  z-index: 100;
   height: 65px;
   overflow: hidden;
 }
@@ -845,8 +846,9 @@ header.global_hd .search_form-input:focus {
 @media screen and (max-width: 1560px) {
   header.global_hd .search_form-input {
     position: absolute;
+    top: 35px;
     right: 0;
-    bottom: -40px;
+    z-index: 99;
     width: 200px;
     background-color: #fff;
     display: none;
@@ -856,6 +858,7 @@ header.global_hd .search_form-submit {
   position: absolute;
   top: 5px;
   right: 10px;
+  z-index: 100;
   width: 21px;
   height: 21px;
   background: url('../images/iconTxt.png?1434542991') -76px -55px no-repeat;
@@ -870,7 +873,7 @@ header.global_hd .search_form-submit:active {
 }
 @media screen and (max-width: 1560px) {
   header.global_hd .search_form-submit:not(.mScreen) {
-    top: 50px;
+    top: 40px;
     display: none;
   }
 }

@@ -77,21 +77,21 @@
 		.youtube {
 			// @include wh2();
 		}
-		@include respondTo(1366){
+		@include respondTo(1366) {
 			width: (367/1591)*100%;
 		};
 	}
 	.col_2 {
 		width: (812/1591)*100%;
 		margin: 0 (35/1591)*100%;
-		@include respondTo(1366){
+		@include respondTo(1366) {
 			width: (822/1591)*100%;
 			margin: 0 (20/1591)*100%;
 		};
 	}
 	.col_3 {
 		width: (351/1591)*100%;
-		@include respondTo(1366){
+		@include respondTo(1366) {
 			width: (361/1591)*100%;
 		};
 	}

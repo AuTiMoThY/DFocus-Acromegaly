@@ -26,29 +26,29 @@ function webBuilding() {
 }
 
 
-	function mainNavLink(whereYouGo) {
-		switch(whereYouGo) {
-			case "goto2":
-				location.href="understanding_1.php";
-				break;
-			case "goto3":
-				location.href="symptoms_1.php";
-				break;
-			case "goto4":
-				location.href="diagnosis_1.php";
-				break;
-			case "goto5":
-				location.href="coexisting_1.php";
-				break;
-			case "goto6":
-				location.href="information.php";
-				break;
-			case "goto7":
-				location.href="media.php";
-				break;
+function mainNavLink(whereYouGo) {
+	switch(whereYouGo) {
+		case "goto2":
+			location.href="understanding_1.php";
+			break;
+		case "goto3":
+			location.href="symptoms_1.php";
+			break;
+		case "goto4":
+			location.href="diagnosis_1.php";
+			break;
+		case "goto5":
+			location.href="coexisting_1.php";
+			break;
+		case "goto6":
+			location.href="information.php";
+			break;
+		case "goto7":
+			location.href="media.php";
+			break;
 
-		}
 	}
+}
 
 function viewPortWidthHeight() {
   var wh = {};
@@ -66,11 +66,12 @@ function viewPortWidthHeight() {
   }
   return wh;
 }
+var viewPortWH = viewPortWidthHeight();
 
 function resizeBlock(){
 	var $body = $("body"),
 		$indexPage = $("body.index_page"),
-		viewPortWH = viewPortWidthHeight(),
+		// viewPortWH = viewPortWidthHeight(),
 		viewPortH = viewPortWH.height;
 	var $indexCnt = $("#indexCnt");
 
@@ -169,6 +170,37 @@ $(function () {
 		$(this).removeClass('js-hover');
 		$("#subNavBar").removeClass('active');
 	});
+
+	var search_form = function (){
+		var viewPortW = viewPortWH.width;
+		var $form = $(".js-search_form");
+		var $formOpen = $(".js-search_form.open");
+		var $input = $(".js-search_form-input");
+		var $submit = $(".js-search_form-submit");
+		var $btn = $(".js-search_form-btn");
+		if (viewPortW<=1560) {
+				console.log('qwe');
+			$input.hide();
+			$submit.hide();
+			$btn.on('click', function(event) {
+				event.preventDefault();
+				console.log('qwe');
+				// $input.show();
+				// $submit.show();
+				isOpen($(".js-search_form"), $(".js-search_form.open"));
+
+				if ($form.hasClass('open')) {
+					$input.show();
+					$submit.show();
+				}else {
+					$input.hide();
+					$submit.hide();
+				};
+			});
+
+		};
+		
+	}();
 
 
 
